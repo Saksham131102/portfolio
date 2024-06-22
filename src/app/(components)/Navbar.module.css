@@ -1,0 +1,8 @@
+.navbarText {
+  color: black;
+  transition: color 0.3s;
+}
+
+.navbarWhite .navbarText {
+  color: white;
+}

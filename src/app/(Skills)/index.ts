@@ -1,0 +1,28 @@
+const skills = [
+  "C",
+  "C++",
+  "Java",
+  "Python",
+  "HTML",
+  "CSS",
+  "Javascript",
+  "Typescript",
+  "Bootstrap",
+  "Tailwindcss",
+  "Nodejs",
+  "Expressjs",
+  "MongoDB",
+  "WebSocket",
+  "Reactjs",
+  "Nextjs",
+  "Git",
+  "Postman",
+  "NumPy",
+  "Pandas",
+  "Matplotlib",
+  "seaborn",
+  "Problem solving",
+  "Eloquent Communication",
+];
+
+export default skills;
