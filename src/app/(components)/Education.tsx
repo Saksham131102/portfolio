@@ -17,7 +17,7 @@ const Education = () => {
         </div>
       </div>
       <div className="mt-4">
-        <div className="text-[#8e8e92]">2021 - Cont'd</div>
+        <div className="text-[#8e8e92]">2021 - Contd.</div>
         <div className="text-black">
           Indian Institute of Information Technology, Dharwad
         </div>
