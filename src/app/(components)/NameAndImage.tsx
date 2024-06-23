@@ -22,8 +22,11 @@ const NameAndImage = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <div className="flex gap-1 items-center">
+        <div className="hidden md:flex  gap-1 items-center">
           View my CV <FiArrowUpRight className="text-lg" />
+        </div>
+        <div className="flex md:hidden gap-1 items-center">
+          My CV <FiArrowUpRight className="text-lg" />
         </div>
       </a>
     </div>
