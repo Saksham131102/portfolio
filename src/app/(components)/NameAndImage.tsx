@@ -23,10 +23,10 @@ const NameAndImage = () => {
         rel="noopener noreferrer"
       >
         <div className="hidden md:flex  gap-1 items-center">
-          View my CV <FiArrowUpRight className="text-lg" />
+          View my Resume <FiArrowUpRight className="text-lg" />
         </div>
         <div className="flex md:hidden gap-1 items-center">
-          My CV <FiArrowUpRight className="text-lg" />
+          My Resume <FiArrowUpRight className="text-lg" />
         </div>
       </a>
     </div>
