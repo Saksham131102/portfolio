@@ -1,80 +1,81 @@
 "use client";
-import Autoplay from "embla-carousel-autoplay";
-import React from "react";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
+
+import React, { useEffect, useRef, useState } from "react";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+import "./styles.css";
+
 import Image from "next/image";
 import { images } from "./data";
 
-const CarouselImage = () => {
-  const plugin = React.useRef(
-    Autoplay({ delay: 5000, stopOnInteraction: true })
-  );
+// import required modules
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
+
+const CarouselImage: React.FC = () => {
+  const swiperRef = useRef(null);
+  const progressCircle = useRef<SVGSVGElement>(null);
+  const progressContent = useRef<HTMLSpanElement>(null);
+
+  const onAutoplayTimeLeft = (s: any, time: number, progress: number) => {
+    if (progressCircle.current) {
+      progressCircle.current.style.setProperty("--progress", `${1 - progress}`);
+    }
+    if (progressContent.current) {
+      progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
+    }
+  };
 
   return (
     <div className="pb-16">
       <div className="mb-4 text-[#B3B3B3] text-sm font-ibm-plex-mono">
         my best pics
       </div>
-      <div>
-        <Carousel
-          plugins={[plugin.current]}
-          className="border-2 border-black"
-          onMouseEnter={plugin.current.stop}
-          onMouseLeave={plugin.current.reset}
+      <div className="border-2 border-black">
+        <Swiper
+          spaceBetween={10}
+          centeredSlides={true}
+          loop={true}
+          autoplay={{
+            delay: 4000,
+            disableOnInteraction: false,
+          }}
+          pagination={{
+            clickable: true,
+          }}
+          navigation={false}
+          modules={[Autoplay, Pagination, Navigation]}
+          onAutoplayTimeLeft={onAutoplayTimeLeft}
+          className="mySwiper"
         >
-          <CarouselContent>
-            {images.map((image, index) => (
+          {images.map((image, index) => (
+            <SwiperSlide>
               <Image
                 key={index}
                 src={image.image}
                 alt="images"
-                className={` object-cover ${image.dark ? "dark-image" : ""}`}
+                className={`object-cover ${image.dark ? "dark-image" : ""}`}
                 width={1000}
                 height={1000}
                 priority
               />
-            ))}
-          </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
+            </SwiperSlide>
+          ))}
+          <div className="autoplay-progress" slot="container-end">
+            <svg viewBox="0 0 48 48" ref={progressCircle}>
+              <circle cx="24" cy="24" r="20"></circle>
+            </svg>
+            <span ref={progressContent}></span>
+          </div>
+        </Swiper>
       </div>
     </div>
   );
-  // return (
-  //   <div className="pb-16">
-  //     <div className="mb-4 text-[#B3B3B3] text-sm font-ibm-plex-mono">
-  //       my best pics
-  //     </div>
-  //     <Carousel
-  //       autoplay
-  //       loop
-  //       autoplayDelay={4000}
-  //       className="rounded-xl border-2 border-black"
-  //       placeholder="image carousel"
-  //       onPointerEnterCapture={() => console.log("Pointer entered")}
-  //       onPointerLeaveCapture={() => console.log("Pointer left")}
-  //     >
-  //       {images.map((image, index) => (
-  //         <Image
-  //           key={index}
-  //           src={image.image}
-  //           alt="images"
-  //           className={`object-cover ${image.dark ? "dark-image" : ""}`}
-  //           width={1000}
-  //           height={1000}
-  //           priority
-  //         />
-  //       ))}
-  //     </Carousel>
-  //   </div>
-  // );
 };
 
 export default CarouselImage;
