@@ -1,5 +1,6 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { FiArrowUpRight } from "react-icons/fi";
+import { FaUserAstronaut } from "react-icons/fa";
 
 const NameAndImage = () => {
   return (
@@ -7,7 +8,9 @@ const NameAndImage = () => {
       <div className="flex gap-6">
         <Avatar className="w-16 h-16 border-[1px] border-[#b3b3b3]">
           <AvatarImage src="/images/saksham.jpg" />
-          <AvatarFallback>Profile Image</AvatarFallback>
+          <AvatarFallback>
+            <FaUserAstronaut className="w-12 h-12" />
+          </AvatarFallback>
         </Avatar>
         <div className="flex flex-col justify-center">
           <p className="font-medium">Saksham</p>
