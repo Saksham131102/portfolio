@@ -13,7 +13,7 @@ import { images } from "./data";
 
 const CarouselImage = () => {
   const plugin = React.useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: true })
+    Autoplay({ delay: 5000, stopOnInteraction: true })
   );
 
   return (
