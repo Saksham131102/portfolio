@@ -54,9 +54,8 @@ const CarouselImage: React.FC = () => {
           className="mySwiper"
         >
           {images.map((image, index) => (
-            <SwiperSlide>
+            <SwiperSlide key={index}>
               <Image
-                key={index}
                 src={image.image}
                 alt="images"
                 className={`object-cover ${image.dark ? "dark-image" : ""}`}
