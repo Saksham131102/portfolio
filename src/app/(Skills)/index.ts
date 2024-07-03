@@ -12,6 +12,7 @@ const skills = [
   "Nodejs",
   "Expressjs",
   "MongoDB",
+  "Mongoose",
   "WebSocket",
   "Reactjs",
   "Nextjs",
@@ -20,8 +21,10 @@ const skills = [
   "NumPy",
   "Pandas",
   "Matplotlib",
-  "seaborn",
-  "Problem solving",
+  "Seaborn",
+  "Problem Solving",
+  "Adaptability",
+  "Time Management",
   "Eloquent Communication",
 ];
 
