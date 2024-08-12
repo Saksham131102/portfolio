@@ -1,5 +1,7 @@
 import Image from "next/image";
 import projects from "../(projects)";
+import Link from "next/link";
+import { FiGithub } from "react-icons/fi";
 const Projects = () => {
   return (
     <div className="text-sm">
@@ -7,15 +9,34 @@ const Projects = () => {
       <div className="mt-4">
         {projects.map((project, index) => (
           <div key={index}>
-            <Image
-              className="rounded-2xl dark-image"
-              src={project.image}
-              alt="image"
-              width={1000}
-              height={1000}
-              priority
-            />
-            <div className="mt-4 text-black pb-16">{project.name}</div>
+            <div className="rounded-xl overflow-hidden dark-image">
+              <Link
+                href={project.hostedLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image
+                  className="dark-image object-center transition-transform duration-300 hover:scale-105"
+                  src={project.image}
+                  alt="image"
+                  width={1000}
+                  height={1000}
+                  priority
+                />
+              </Link>
+            </div>
+            <div className="flex justify-between">
+              <div className="mt-4 text-black mb-16">{project.name}</div>
+              <Link
+                className="flex items-center gap-1 mt-4 text-[#8e8e92] hover:text-black transition-colors duration-500 mb-16"
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FiGithub />
+                GitHub
+              </Link>
+            </div>
           </div>
         ))}
       </div>

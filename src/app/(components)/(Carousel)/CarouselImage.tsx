@@ -36,7 +36,7 @@ const CarouselImage: React.FC = () => {
       <div className="mb-4 text-[#B3B3B3] text-sm font-ibm-plex-mono">
         my best pics
       </div>
-      <div className="border-2 border-black">
+      <div className="border-2 border-black rounded-xl overflow-hidden">
         <Swiper
           spaceBetween={10}
           centeredSlides={true}
@@ -54,11 +54,11 @@ const CarouselImage: React.FC = () => {
           className="mySwiper"
         >
           {images.map((image, index) => (
-            <SwiperSlide key={index}>
+            <SwiperSlide key={index} className="">
               <Image
                 src={image.image}
                 alt="images"
-                className={`object-cover ${image.dark ? "dark-image" : ""}`}
+                className={`object-cover transition-transform duration-300 hover:scale-105`}
                 width={1000}
                 height={1000}
                 priority
