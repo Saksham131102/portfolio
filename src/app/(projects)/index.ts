@@ -2,7 +2,7 @@ const projects = [
   {
     image: "/images/streamchat.png",
     name: "streamchat",
-    github: "https://github.com/Saksham131102/snapgram",
+    github: "https://github.com/Saksham131102/STREAMCHAT",
     hostedLink: "https://streamchat1.netlify.app/",
   },
   {
