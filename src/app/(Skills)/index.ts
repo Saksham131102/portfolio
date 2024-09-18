@@ -1,8 +1,5 @@
 const skills = [
-  "C",
   "C++",
-  "Java",
-  "Python",
   "HTML",
   "CSS",
   "Javascript",
@@ -18,14 +15,6 @@ const skills = [
   "Nextjs",
   "Git",
   "Postman",
-  "NumPy",
-  "Pandas",
-  "Matplotlib",
-  "Seaborn",
-  "Problem Solving",
-  "Adaptability",
-  "Time Management",
-  "Eloquent Communication",
 ];
 
 export default skills;
