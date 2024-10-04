@@ -1,7 +1,7 @@
 const projects = [
   {
     image:
-      "https://github.com/Saksham131102/CGC-Placements/blob/main/screenshots/home_dashboard.png",
+      "https://raw.githubusercontent.com/Saksham131102/CGC-Placements/refs/heads/main/screenshots/home_dashboard.png",
     name: "CGC-Placement App",
     github: "https://github.com/Saksham131102/CGC-Placements",
     hostedLink: "https://cgcstudents.vercel.app",
