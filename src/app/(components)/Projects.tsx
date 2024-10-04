@@ -9,7 +9,7 @@ const Projects = () => {
       <div className="mt-4">
         {projects.map((project, index) => (
           <div key={index}>
-            <div className="rounded-xl overflow-hidden dark-image">
+            <div className="rounded-xl overflow-hidden dark-image border-2 border-black">
               <Link
                 href={project.hostedLink}
                 target="_blank"

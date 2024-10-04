@@ -32,48 +32,55 @@ const CarouselImage: React.FC = () => {
   };
 
   return (
-    <div className="pb-16">
-      <div className="mb-4 text-[#B3B3B3] text-sm font-ibm-plex-mono">
-        my best pics
+    <>
+      <style>
+        {`.swiper-pagination-bullet {
+          background-color: white;
+        }`}
+      </style>
+      <div className="pb-16">
+        <div className="mb-4 text-[#B3B3B3] text-sm font-ibm-plex-mono">
+          my best pics
+        </div>
+        <div className="border-2 border-black rounded-xl overflow-hidden">
+          <Swiper
+            spaceBetween={10}
+            centeredSlides={true}
+            loop={true}
+            autoplay={{
+              delay: 4000,
+              disableOnInteraction: false,
+            }}
+            pagination={{
+              clickable: true,
+            }}
+            navigation={false}
+            modules={[Autoplay, Pagination, Navigation]}
+            onAutoplayTimeLeft={onAutoplayTimeLeft}
+            className="mySwiper"
+          >
+            {images.map((image, index) => (
+              <SwiperSlide key={index} className="">
+                <Image
+                  src={image.image}
+                  alt="images"
+                  className={`object-cover transition-transform duration-300 hover:scale-105`}
+                  width={1000}
+                  height={1000}
+                  priority
+                />
+              </SwiperSlide>
+            ))}
+            <div className="autoplay-progress" slot="container-end">
+              <svg viewBox="0 0 48 48" ref={progressCircle}>
+                <circle cx="24" cy="24" r="20"></circle>
+              </svg>
+              <span ref={progressContent}></span>
+            </div>
+          </Swiper>
+        </div>
       </div>
-      <div className="border-2 border-black rounded-xl overflow-hidden">
-        <Swiper
-          spaceBetween={10}
-          centeredSlides={true}
-          loop={true}
-          autoplay={{
-            delay: 4000,
-            disableOnInteraction: false,
-          }}
-          pagination={{
-            clickable: true,
-          }}
-          navigation={false}
-          modules={[Autoplay, Pagination, Navigation]}
-          onAutoplayTimeLeft={onAutoplayTimeLeft}
-          className="mySwiper"
-        >
-          {images.map((image, index) => (
-            <SwiperSlide key={index} className="">
-              <Image
-                src={image.image}
-                alt="images"
-                className={`object-cover transition-transform duration-300 hover:scale-105`}
-                width={1000}
-                height={1000}
-                priority
-              />
-            </SwiperSlide>
-          ))}
-          <div className="autoplay-progress" slot="container-end">
-            <svg viewBox="0 0 48 48" ref={progressCircle}>
-              <circle cx="24" cy="24" r="20"></circle>
-            </svg>
-            <span ref={progressContent}></span>
-          </div>
-        </Swiper>
-      </div>
-    </div>
+    </>
   );
 };
 
