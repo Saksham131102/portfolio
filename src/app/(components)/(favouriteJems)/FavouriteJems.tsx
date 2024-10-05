@@ -41,10 +41,10 @@ const FavouriteJems = () => {
       {tracks.map((track, index) => (
         <div
           key={index}
-          className="flex justify-between mt-4 bg-[#292929] rounded-2xl"
+          className="flex justify-between mt-4 bg-[#292929] rounded-xl"
         >
           <div className="flex m-2 gap-2">
-            <Avatar className="w-16 h-16 m-auto">
+            <Avatar className="w-16 h-16 m-auto rounded-lg">
               <AvatarImage src={track.cover} />
               <AvatarFallback>Profile Image</AvatarFallback>
             </Avatar>
