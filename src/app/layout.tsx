@@ -33,7 +33,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/icon-192x192.png" />
       </Head>
       <body className={inter.className}>
-        <div className="bg"></div>
+        {/* <div className="bg"></div> */}
         <Navbar />
         {children}
       </body>

@@ -1,6 +1,6 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { FiArrowUpRight } from "react-icons/fi";
 import { FaUserAstronaut } from "react-icons/fa";
+import { IoDocumentOutline } from "react-icons/io5";
 
 const NameAndImage = () => {
   return (
@@ -9,7 +9,7 @@ const NameAndImage = () => {
         <Avatar className="w-16 h-16 border-[1px] border-[#b3b3b3]">
           <AvatarImage src="/images/saksham.jpg" />
           <AvatarFallback>
-            <FaUserAstronaut className="w-12 h-12" />
+            <FaUserAstronaut className="w-10 h-10" />
           </AvatarFallback>
         </Avatar>
         <div className="flex flex-col justify-center">
@@ -25,11 +25,8 @@ const NameAndImage = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <div className="hidden md:flex  gap-1 items-center">
-          View my Resume <FiArrowUpRight className="text-lg" />
-        </div>
-        <div className="flex md:hidden gap-1 items-center">
-          My Resume <FiArrowUpRight className="text-lg" />
+        <div className="flex  gap-1 items-center">
+          Resume <IoDocumentOutline className="text-lg" />
         </div>
       </a>
     </div>
