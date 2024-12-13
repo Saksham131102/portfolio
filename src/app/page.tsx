@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <main id="home">
       <div className="p-5 flex flex-col items-center pt-24">
-        <div className="lg:w-[860px] md:w-[780px] w-full md:px-[60px]">
+        <div className="lg:w-[860px] md:w-[780px] w-full md:px-[60px] h-screen">
           <NameAndImage />
           <Introduction />
           <Divider />

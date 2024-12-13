@@ -34,8 +34,13 @@ export default function RootLayout({
       </Head>
       <body className={inter.className}>
         {/* <div className="bg"></div> */}
-        <Navbar />
-        {children}
+        <div className="h-screen overflow-auto">
+          <Navbar />
+          {children}
+        </div>
+        {/* <div className="absolute flex-none w-full z-50 hover:bg-blue-gray-500 bottom-10 flex justify-center text-xl">
+          Docker
+        </div> */}
       </body>
     </html>
   );
