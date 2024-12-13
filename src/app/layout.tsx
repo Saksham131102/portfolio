@@ -34,7 +34,7 @@ export default function RootLayout({
       </Head>
       <body className={inter.className}>
         {/* <div className="bg"></div> */}
-        <div className="h-screen overflow-auto">
+        <div className="h-screen overflow-auto scroll-smooth">
           <Navbar />
           {children}
         </div>
