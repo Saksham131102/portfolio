@@ -9,7 +9,7 @@ const SocialMedia = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <IoLogoLinkedin className="text-lg" /> LinkedIn
+          <IoLogoLinkedin className="text-lg" /> <span className="hidden md:block">LinkedIn</span>
         </a>
         <div className="rounded-full w-1 h-1 bg-[#e5e5e8]"></div>
         <a
@@ -18,7 +18,7 @@ const SocialMedia = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <IoLogoGithub className="text-lg" /> GitHub
+          <IoLogoGithub className="text-lg" /> <span className="hidden md:block">GitHub</span>
         </a>
         <div className="rounded-full w-1 h-1 bg-[#e5e5e8]"></div>
         <a
@@ -27,7 +27,7 @@ const SocialMedia = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <IoLogoInstagram className="text-lg" /> Instagram
+          <IoLogoInstagram className="text-lg" /> <span className="hidden md:block">Instagram</span>
         </a>
       </div>
       <a
