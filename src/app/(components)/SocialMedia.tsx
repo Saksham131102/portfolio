@@ -5,7 +5,7 @@ const SocialMedia = () => {
       <div className="flex gap-3 items-center">
         <a
           className="flex items-center gap-1 hover:text-black transition-colors duration-500"
-          href={"https://www.linkedin.com/in/saksham131102/"}
+          href={"https://www.linkedin.com/in/saksham013/"}
           target="_blank"
           rel="noopener noreferrer"
         >

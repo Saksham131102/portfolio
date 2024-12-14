@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./(components)/Navbar";
 import Head from "next/head";
+import Docker from "./(components)/Docker";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <Head>
         <link rel="manifest" href="/manifest.json" />
         <link rel="icon" href="/icon-48x48.png" sizes="48x48" />
@@ -32,15 +33,13 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="AppName" />
         <link rel="apple-touch-icon" href="/icon-192x192.png" />
       </Head>
-      <body className={inter.className}>
+      <body className={`${inter.className}`}>
         {/* <div className="bg"></div> */}
         <div className="h-screen overflow-auto scroll-smooth">
           <Navbar />
           {children}
         </div>
-        {/* <div className="absolute flex-none w-full z-50 hover:bg-blue-gray-500 bottom-10 flex justify-center text-xl">
-          Docker
-        </div> */}
+        <Docker />
       </body>
     </html>
   );
