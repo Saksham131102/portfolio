@@ -1,4 +1,10 @@
-import { IoLogoGithub, IoLogoInstagram, IoLogoLinkedin, IoMailOutline } from "react-icons/io5";
+import {
+  IoCodeSlash,
+  IoLogoGithub,
+  IoLogoInstagram,
+  IoLogoLinkedin,
+  IoMailOutline,
+} from "react-icons/io5";
 const SocialMedia = () => {
   return (
     <div className="text-sm text-[#8e8e92] flex justify-between">
@@ -9,7 +15,8 @@ const SocialMedia = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <IoLogoLinkedin className="text-lg" /> <span className="hidden md:block">LinkedIn</span>
+          <IoLogoLinkedin className="text-lg" />{" "}
+          <span className="hidden md:block">LinkedIn</span>
         </a>
         <div className="rounded-full w-1 h-1 bg-[#e5e5e8]"></div>
         <a
@@ -18,16 +25,18 @@ const SocialMedia = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <IoLogoGithub className="text-lg" /> <span className="hidden md:block">GitHub</span>
+          <IoLogoGithub className="text-lg" />{" "}
+          <span className="hidden md:block">GitHub</span>
         </a>
         <div className="rounded-full w-1 h-1 bg-[#e5e5e8]"></div>
         <a
           className="flex items-center gap-1 hover:text-black transition-colors duration-500"
-          href={"https://www.instagram.com/flemoid.___/"}
+          href={"https://leetcode.com/u/Fleeemoid/"}
           target="_blank"
           rel="noopener noreferrer"
         >
-          <IoLogoInstagram className="text-lg" /> <span className="hidden md:block">Instagram</span>
+          <IoCodeSlash className="text-lg" />{" "}
+          <span className="hidden md:block">Instagram</span>
         </a>
       </div>
       <a
