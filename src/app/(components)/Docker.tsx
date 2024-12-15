@@ -33,14 +33,14 @@ const Docker = () => {
         >
           <IoLogoGithub className="text-xl" />
         </a>
-        <a
+        {/* <a
           href="https://leetcode.com/u/Fleeemoid/"
           target="_blank"
           rel="noopener noreferrer"
           className="active:bg-gray-300 active:text-black rounded-full h-9 w-9 flex justify-center items-center"
         >
           <IoCodeSlash className="text-xl" />
-        </a>
+        </a> */}
         <div className="border border-r h-8"></div>
         <div className="active:bg-gray-300 active:text-black rounded-full h-9 w-9 flex justify-center items-center">
           <FiSun className="text-xl" />

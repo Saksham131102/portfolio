@@ -29,7 +29,7 @@ const SocialMedia = () => {
           <span className="hidden md:block">GitHub</span>
         </a>
         <div className="rounded-full w-1 h-1 bg-[#e5e5e8]"></div>
-        <a
+        {/* <a
           className="flex items-center gap-1 hover:text-black transition-colors duration-500"
           href={"https://leetcode.com/u/Fleeemoid/"}
           target="_blank"
@@ -37,7 +37,7 @@ const SocialMedia = () => {
         >
           <IoCodeSlash className="text-lg" />{" "}
           <span className="hidden md:block">Instagram</span>
-        </a>
+        </a> */}
       </div>
       <a
         href="mailto:saksham00013@gmail.com?body=Thank You for reaching out to me. Drop your message below."
