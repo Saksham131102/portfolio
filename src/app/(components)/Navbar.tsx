@@ -30,12 +30,12 @@ const Navbar = () => {
   }, []);
   return (
     <div
-      className={`text-4xl z-50 flex fixed w-full justify-center lg:gap-48 md:gap-36 gap-20 p-5`}
+      className={`absolute left-1/2 transform -translate-x-1/2 w-auto z-50 top-5 flex justify-center items-center text-4xl`}
       ref={navbarRef}
     >
       <a
         href="#home"
-        className={`font-shadows-into-light ${styles.navbarText}`}
+        className={`font-shadows-into-light ${styles.navbarText} dark:text-white`}
       >
         Saksham.
       </a>

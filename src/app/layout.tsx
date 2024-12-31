@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "./(components)/Navbar";
 import Head from "next/head";
 import Docker from "./(components)/Docker";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -34,12 +35,14 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/icon-192x192.png" />
       </Head>
       <body className={`${inter.className}`}>
-        {/* <div className="bg"></div> */}
-        <div className="h-screen overflow-auto scroll-smooth">
-          <Navbar />
-          {children}
-        </div>
-        <Docker />
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          {/* <div className="bg"></div> */}
+          <div className="h-screen overflow-auto scroll-smooth">
+            <Navbar />
+            {children}
+          </div>
+          <Docker />
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -39,10 +39,10 @@ const CarouselImage: React.FC = () => {
         }`}
       </style>
       <div className="pb-16">
-        <div className="mb-4 text-[#B3B3B3] text-sm font-ibm-plex-mono">
+        <div className="mb-4 text-[#B3B3B3] dark:text-[#ededed] text-sm font-ibm-plex-mono">
           my best pics
         </div>
-        <div className="border-2 border-black rounded-xl overflow-hidden">
+        <div className="border-2 dark:border border-black dark:border-gray-800 rounded-xl overflow-hidden">
           <Swiper
             spaceBetween={10}
             centeredSlides={true}

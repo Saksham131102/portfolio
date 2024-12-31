@@ -13,14 +13,14 @@ const NameAndImage = () => {
           </AvatarFallback>
         </Avatar>
         <div className="flex flex-col justify-center">
-          <p className="font-medium">Saksham</p>
-          <p className="text-[#8e8e92] text-sm">
+          <p className="font-medium dark:text-[#ededed]">Saksham</p>
+          <p className="text-[#8e8e92] dark:text-[#b3b3b3] text-sm">
             Full-Stack Developer Enthusiast
           </p>
         </div>
       </div>
       <a
-        className="flex items-center my-auto text-sm text-[#B3B3B3] hover:text-black transition-colors duration-500"
+        className="flex items-center my-auto text-sm text-[#8e8e92] dark:text-[#b3b3b3] hover:text-black dark:hover:text-white transition-colors duration-500"
         href="https://drive.google.com/file/d/10wzGgjshtKCcaFBEBStFO_-w65ocg6zJ/view?usp=sharing"
         target="_blank"
         rel="noopener noreferrer"

@@ -15,6 +15,7 @@ const skills = [
   "Nextjs",
   "Git",
   "Postman",
+  "Shell Scripting",
 ];
 
 export default skills;

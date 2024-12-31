@@ -36,12 +36,12 @@ const FavouriteJems = () => {
     setPlaying(newPlayingState);
   };
   return (
-    <div className="text-[#B3B3B3] text-sm">
+    <div className="text-[#B3B3B3] dark:text-[#ededed] text-sm">
       <div className="font-ibm-plex-mono">favourite jems</div>
       {tracks.map((track, index) => (
         <div
           key={index}
-          className="flex justify-between mt-4 bg-[#292929] rounded-xl"
+          className="flex justify-between mt-4 bg-[#292929] dark:bg-transparent dark:border dark:border-gray-800 rounded-xl"
         >
           <div className="flex m-2 gap-2">
             <Avatar className="w-16 h-16 m-auto rounded-lg">
@@ -50,7 +50,7 @@ const FavouriteJems = () => {
             </Avatar>
             <div className="flex flex-col justify-center">
               <div className="text-white text-base">{track.name}</div>
-              <div>{track.artist}</div>
+              <div className="text-[#8e8e92]">{track.artist}</div>
             </div>
           </div>
           <div className="flex flex-col justify-between">
@@ -60,7 +60,7 @@ const FavouriteJems = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaSpotify className="text-xl text-[#1BD760]" />
+              <FaSpotify className="text-xl text-white" />
             </a>
             <div className="flex justify-end m-2">
               <TogglePlay

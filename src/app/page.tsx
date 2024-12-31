@@ -25,6 +25,7 @@ export default function Home() {
           <FavouriteJems />
           <Divider />
           <Footer />
+          <div className="pt-16"></div>
         </div>
       </div>
     </main>
