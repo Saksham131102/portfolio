@@ -24,7 +24,7 @@ const Docker = () => {
   }
 
   return (
-    <div className="absolute left-1/2 transform -translate-x-1/2 w-auto z-50 bottom-10 flex justify-center items-center text-xl">
+    <div className="fixed left-1/2 transform -translate-x-1/2 w-auto z-50 bottom-5 flex justify-center items-center text-xl">
       <div className="bg-white dark:bg-black text-[#8e8e92] h-14 px-5 rounded-full border border-gray-300 dark:border-gray-700 shadow-md dark:shadow-gray-800 flex justify-center items-center gap-4">
         <a
           href="#home"
