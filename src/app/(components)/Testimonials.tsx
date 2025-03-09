@@ -20,7 +20,7 @@ export default async function Testimonials() {
       .select('*')
       .eq('approved', true)
       .order('rating', { ascending: false })
-      .limit(6);
+      .limit(4);
     
     if (error) {
       console.error('Home page: Error fetching testimonials:', error);

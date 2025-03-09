@@ -45,23 +45,23 @@ function createAdminClient() {
 
 export default async function TestimonialsAdminPage() {
   // Only run in browser, skip during build
-  if (typeof window === 'undefined' && process.env.NODE_ENV === 'production') {
-    // During build, return empty testimonials
-    return (
-      <div className="container mx-auto py-12 px-4">
-        <h1 className="text-3xl font-bold mb-6">Testimonials Admin</h1>
-        <div className="mb-6">
-          <Link href="/" className="text-blue-600 hover:text-blue-800 mr-4">
-            Back to Home
-          </Link>
-        </div>
-        <div className="bg-white dark:bg-gray-800 shadow rounded-lg p-6">
-          <h2 className="text-xl font-semibold mb-4">All Testimonials (0)</h2>
-          <p className="text-gray-600 dark:text-gray-400">Loading testimonials...</p>
-        </div>
-      </div>
-    );
-  }
+  // if (typeof window === 'undefined' && process.env.NODE_ENV === 'production') {
+  //   // During build, return empty testimonials
+  //   return (
+  //     <div className="container mx-auto py-12 px-4">
+  //       <h1 className="text-3xl font-bold mb-6">Testimonials Admin</h1>
+  //       <div className="mb-6">
+  //         <Link href="/" className="text-blue-600 hover:text-blue-800 mr-4">
+  //           Back to Home
+  //         </Link>
+  //       </div>
+  //       <div className="bg-white dark:bg-gray-800 shadow rounded-lg p-6">
+  //         <h2 className="text-xl font-semibold mb-4">All Testimonials (0)</h2>
+  //         <p className="text-gray-600 dark:text-gray-400">Loading testimonials...</p>
+  //       </div>
+  //     </div>
+  //   );
+  // }
   
   let testimonials: Testimonial[] = [];
   let error: string | null = null;
