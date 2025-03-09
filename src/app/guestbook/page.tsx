@@ -25,7 +25,7 @@ export default async function GuestbookPage() {
         </Link>
       </div>
         <p className="dark:text-[#b3b3b3] text-black mb-6">
-          I'd love to hear what you think about my portfolio! Your feedback helps me improve and grow.
+          I&apos;d love to hear what you think about my portfolio! Your feedback helps me improve and grow.
           The top rated comments will be featured on the homepage.
         </p>
         <GuestbookForm />

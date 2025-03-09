@@ -67,7 +67,7 @@ export default function GuestbookForm() {
           className="w-full px-3 py-2 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white"
         />
         <p className="text-xs text-gray-500 dark:text-gray-400">
-          Your email won't be published
+          Your email won&apos;t be published
         </p>
       </div>
 

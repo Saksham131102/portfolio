@@ -35,7 +35,7 @@ export default async function TestimonialsPage() {
       </div>
       
       <p className="dark:text-[#b3b3b3] text-black mb-4">
-        Here's what people are saying about my portfolio. Thank you for all the feedback!
+        Here&apos;s what people are saying about my portfolio. Thank you for all the feedback!
       </p>
       
       <TestimonialsWithSearch testimonials={testimonials || []} />
