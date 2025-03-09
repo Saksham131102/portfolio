@@ -17,7 +17,23 @@ export const fetchCache = 'force-no-store';
 // Create admin Supabase client
 function createAdminClient() {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
-  const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+  const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+  
+  // Use service key if available, otherwise fallback to anon key
+  const supabaseKey = supabaseServiceKey || supabaseAnonKey || '';
+  
+  if (!supabaseUrl) {
+    console.error('🔴 Admin page: NEXT_PUBLIC_SUPABASE_URL is not defined');
+  }
+  
+  if (!supabaseKey) {
+    console.error('🔴 Admin page: No Supabase key available');
+  } else if (!supabaseServiceKey) {
+    console.warn('⚠️ Admin page: SUPABASE_SERVICE_ROLE_KEY is not defined, falling back to anon key');
+  }
+  
+  console.log('🟢 Admin page: Creating Supabase client with URL:', supabaseUrl);
   
   return createClient(supabaseUrl, supabaseKey, {
     auth: {
@@ -51,6 +67,8 @@ export default async function TestimonialsAdminPage() {
   let error: string | null = null;
   
   try {
+    console.log('🔍 Admin page: Fetching testimonials...');
+    
     // Get direct access to Supabase during rendering
     const supabase = createAdminClient();
     
@@ -60,12 +78,19 @@ export default async function TestimonialsAdminPage() {
       .order('created_at', { ascending: false });
     
     if (supabaseError) {
+      console.error('🔴 Admin page: Error fetching testimonials:', supabaseError);
       throw supabaseError;
     }
     
-    testimonials = data as Testimonial[];
+    if (!data) {
+      console.warn('⚠️ Admin page: No data returned from Supabase');
+    } else {
+      console.log(`🟢 Admin page: Successfully fetched ${data.length} testimonials`);
+    }
+    
+    testimonials = data as Testimonial[] || [];
   } catch (err) {
-    console.error('Error fetching testimonials:', err);
+    console.error('🔴 Admin page: Exception fetching testimonials:', err);
     error = err instanceof Error ? err.message : 'Unknown error fetching testimonials';
   }
   

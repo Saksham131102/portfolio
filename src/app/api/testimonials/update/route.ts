@@ -9,8 +9,19 @@ function createAdminClient() {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
   const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
   
+  if (!supabaseUrl) {
+    console.error('NEXT_PUBLIC_SUPABASE_URL is not defined');
+  }
+  
+  if (!supabaseServiceKey) {
+    console.error('SUPABASE_SERVICE_ROLE_KEY is not defined');
+    console.log('Using fallback anonymous key instead');
+  }
+  
   // If we don't have a service key, fall back to anonymous key
   const supabaseKey = supabaseServiceKey || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+  
+  console.log('Creating Supabase admin client with URL:', supabaseUrl);
   
   return createClient(supabaseUrl, supabaseKey, {
     auth: {
@@ -33,6 +44,8 @@ export async function POST(request: Request) {
     
     // Use admin client instead of public client
     const supabase = createAdminClient();
+    
+    console.log(`Attempting to update testimonial ${id} to approved=${approved}`);
     
     // Update the testimonial
     const { error } = await supabase
@@ -62,10 +75,17 @@ export async function POST(request: Request) {
     
     // Verify the update was successful
     if (updatedTestimonial && updatedTestimonial.approved !== approved) {
+      console.error('Update failed to apply correctly');
       return NextResponse.json(
         { error: 'Update failed to apply correctly' },
         { status: 500 }
       );
+    }
+    
+    if (updatedTestimonial) {
+      console.log('Testimonial updated successfully:', updatedTestimonial);
+    } else {
+      console.log('Testimonial appears to be updated but could not confirm');
     }
     
     // Revalidate paths that might display testimonials

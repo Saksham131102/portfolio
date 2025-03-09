@@ -9,7 +9,13 @@ export const metadata: Metadata = {
   description: 'Read what others have to say about my portfolio.',
 };
 
+// Force dynamic rendering to avoid caching issues
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export default async function TestimonialsPage() {
+  console.log('Testimonials page: Fetching all approved testimonials');
+  
   // Fetch all approved testimonials
   const { data: testimonials, error } = await supabase
     .from('testimonials')
@@ -18,7 +24,9 @@ export default async function TestimonialsPage() {
     .order('rating', { ascending: false });
     
   if (error) {
-    console.error('Error fetching testimonials:', error);
+    console.error('Testimonials page: Error fetching testimonials:', error);
+  } else {
+    console.log(`Testimonials page: Successfully fetched ${testimonials?.length || 0} approved testimonials`);
   }
 
   return (
