@@ -22,7 +22,7 @@ export default async function TestimonialsPage() {
   }
 
   return (
-    <main className="flex flex-col items-center">
+    <main className="flex flex-col items-center mb-20">
       <div className="container p-5 lg:w-[860px] md:w-[780px] w-full md:px-[60px] pt-12 text-sm">
       <div className="flex items-center justify-between mt-12 mb-4">
         <h1 className="text-[#B3B3B3] dark:text-[#ededed] font-ibm-plex-mono">testimonials</h1>
