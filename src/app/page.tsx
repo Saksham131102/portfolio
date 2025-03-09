@@ -8,6 +8,7 @@ import NameAndImage from "./(components)/NameAndImage";
 import Projects from "./(components)/Projects";
 import Skills from "./(components)/Skills";
 import SocialMedia from "./(components)/SocialMedia";
+import Testimonials from "./(components)/Testimonials";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
           <Projects />
           <Education />
           <CarouselImage />
+          <Testimonials />
           <FavouriteJems />
           <Divider />
           <Footer />

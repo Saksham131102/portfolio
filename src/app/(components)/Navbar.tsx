@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-
+import Link from "next/link";
 import styles from "./Navbar.module.css";
 
 const Navbar = () => {
@@ -30,17 +30,15 @@ const Navbar = () => {
   }, []);
   return (
     <div
-      className={`absolute left-1/2 transform -translate-x-1/2 w-auto z-50 top-5 flex justify-center items-center text-4xl`}
+      className={`absolute left-1/2 transform -translate-x-1/2 w-auto z-50 top-5 flex justify-center items-center`}
       ref={navbarRef}
     >
-      <a
-        href="#home"
-        className={`font-shadows-into-light ${styles.navbarText} dark:text-white`}
-      >
-        Saksham.
-      </a>
-      {/* <a href="#project">project</a> */}
-      {/* <a href="#about">about me</a> */}
+        <Link
+          href="/"
+          className={`font-shadows-into-light text-4xl ${styles.navbarText} dark:text-white`}
+        >
+          Saksham.
+        </Link>
     </div>
   );
 };

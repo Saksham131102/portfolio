@@ -7,9 +7,11 @@ import {
   IoLogoInstagram,
   IoLogoLinkedin,
 } from "react-icons/io5";
+import { MdOutlineRateReview } from "react-icons/md";
 
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 const Docker = () => {
   const { theme, setTheme } = useTheme();
@@ -26,12 +28,12 @@ const Docker = () => {
   return (
     <div className="fixed left-1/2 transform -translate-x-1/2 w-auto z-50 bottom-5 flex justify-center items-center text-xl">
       <div className="bg-white dark:bg-black text-[#8e8e92] h-14 px-5 rounded-full border border-gray-300 dark:border-gray-700 shadow-md dark:shadow-gray-800 flex justify-center items-center gap-4">
-        <a
-          href="#home"
+        <Link
+          href="/"
           className="active:bg-gray-300 dark:active:bg-gray-700 active:text-black dark:active:text-white rounded-full h-9 w-9 flex justify-center items-center"
         >
           <FiHome className="text-xl" />
-        </a>
+        </Link>
         <div className="border border-r border-l-0 border-t-0 border-b-0 h-8 dark:border-[#8e8e92]"></div>
         <a
           href="https://www.linkedin.com/in/saksham013/"
@@ -49,14 +51,12 @@ const Docker = () => {
         >
           <IoLogoGithub className="text-xl" />
         </a>
-        {/* <a
-          href="https://leetcode.com/u/Fleeemoid/"
-          target="_blank"
-          rel="noopener noreferrer"
+        <Link
+          href="/testimonials"
           className="active:bg-gray-300 active:text-black rounded-full h-9 w-9 flex justify-center items-center"
         >
-          <IoCodeSlash className="text-xl" />
-        </a> */}
+          <MdOutlineRateReview className="text-xl" />
+        </Link>
         <div className="border border-r border-l-0 border-t-0 border-b-0 h-8 dark:border-[#8e8e92]"></div>
         <button className="active:bg-gray-300 dark:active:bg-gray-700 active:text-black dark:active:text-white rounded-full h-9 w-9 flex justify-center items-center">
           {/* <FiSun className="text-xl" /> */}
