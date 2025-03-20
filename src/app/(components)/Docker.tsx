@@ -55,7 +55,7 @@ const Docker = () => {
           href="/testimonials"
           className="active:bg-gray-300 active:text-black rounded-full h-9 w-9 flex justify-center items-center"
         >
-          <MdOutlineRateReview className="text-xl" />
+          <MdOutlineRateReview className="text-2xl" />
         </Link> */}
         <div className="border border-r border-l-0 border-t-0 border-b-0 h-8 dark:border-[#8e8e92]"></div>
         <button className="active:bg-gray-300 dark:active:bg-gray-700 active:text-black dark:active:text-white rounded-full h-9 w-9 flex justify-center items-center">
