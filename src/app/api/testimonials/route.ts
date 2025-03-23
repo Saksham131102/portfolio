@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 import { connectToDatabase } from "@/lib/mongodb";
 import Testimonial from "@/server/models/testimonials";
 
-// ✅ Handle GET request (Fetch testimonials)
+// Handle GET request (Fetch testimonials)
 export async function GET(req: Request) {
   try {
     await connectToDatabase();
@@ -56,14 +56,18 @@ export async function GET(req: Request) {
   }
 }
 
-// ✅ Handle POST request (Create a new testimonial)
+// Handle POST request (Create a new testimonial)
 export async function POST(req: Request) {
   try {
     await connectToDatabase();
     const body = await req.json();
     const testimonial = await Testimonial.create(body);
     return NextResponse.json(
-      { success: true, data: testimonial },
+      {
+        success: true,
+        message:
+          "Thank You for sharing your feedback. Once approved, it will display on site.",
+      },
       { status: 201 }
     );
   } catch (error) {
@@ -74,7 +78,7 @@ export async function POST(req: Request) {
   }
 }
 
-// ✅ Handle PUT request (Update a testimonial by ID)
+// Handle PUT request (Update a testimonial by ID)
 export async function PUT(req: Request) {
   try {
     await connectToDatabase();
@@ -120,7 +124,7 @@ export async function PUT(req: Request) {
   }
 }
 
-// ✅ Handle DELETE request (Remove a testimonial by ID)
+// Handle DELETE request (Remove a testimonial by ID)
 export async function DELETE(req: Request) {
   try {
     await connectToDatabase();
