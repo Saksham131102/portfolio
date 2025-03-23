@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-// import { getTopTestimonials } from '@/lib/supabase';
 import TestimonialList from "@/components/TestimonialList";
 import { FaArrowRight } from "react-icons/fa6";
 import { useEffect, useState } from "react";
