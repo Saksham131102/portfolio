@@ -1,15 +1,13 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function AdminLoginForm() {
-  const [password, setPassword] = useState('');
+  const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const fromPath = searchParams.get('from') || '/admin/testimonials';
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -17,10 +15,10 @@ export default function AdminLoginForm() {
     setLoading(true);
 
     try {
-      const response = await fetch('/api/admin/login', {
-        method: 'POST',
+      const response = await fetch("/api/admin/login", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ password }),
       });
@@ -28,17 +26,19 @@ export default function AdminLoginForm() {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.error || 'Authentication failed');
+        throw new Error(data.error || "Authentication failed");
       }
 
       if (data.success) {
         // Redirect to the original page or the default admin page
-        router.push(fromPath);
+        router.push("/admin/testimonials");
       } else {
-        setError('Invalid password');
+        setError("Invalid password");
       }
     } catch (error) {
-      setError(error instanceof Error ? error.message : 'Authentication failed');
+      setError(
+        error instanceof Error ? error.message : "Authentication failed"
+      );
     } finally {
       setLoading(false);
     }
@@ -51,7 +51,7 @@ export default function AdminLoginForm() {
           {error}
         </div>
       )}
-      
+
       <div className="space-y-2">
         <label htmlFor="password" className="block text-sm font-medium">
           Admin Password
@@ -72,8 +72,8 @@ export default function AdminLoginForm() {
         disabled={loading}
         className="w-full text-white bg-black dark:bg-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 font-medium py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black disabled:opacity-50"
       >
-        {loading ? 'Logging in...' : 'Login'}
+        {loading ? "Logging in..." : "Login"}
       </button>
     </form>
   );
-} 
+}
