@@ -2,42 +2,21 @@
 
 import Link from "next/link";
 import TestimonialAdmin from "./TestimonialAdmin";
-import { useEffect, useState } from "react";
-
-interface ITestimonial {
-  _id: string;
-  name: string;
-  message: string;
-  rating: number;
-  approved: boolean;
-  createdAt: string;
-  updatedAt: string;
-}
+import { useTestimonials } from "@/hooks/useTestimonials";
 
 export default function TestimonialsAdminPage() {
-  const [testimonials, setTestimonials] = useState<ITestimonial[]>([]);
-  const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState(true);
+  const { 
+    data: testimonials, 
+    isLoading, 
+    error: queryError,
+    isError
+  } = useTestimonials();
+  
+  const errorMessage = isError 
+    ? (queryError instanceof Error ? queryError.message : "Failed to fetch testimonials") 
+    : null;
 
-  useEffect(() => {
-    const fetchTestimonials = async () => {
-      setLoading(true);
-      try {
-        const res = await fetch("/api/testimonials");
-        const data = await res.json();
-        setTestimonials(data.data);
-      } catch (error) {
-        console.error(error);
-        setError("Failed to fetch testimonials");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchTestimonials();
-  }, []);
-
-  if (loading) {
+  if (isLoading) {
     return (
       <div className="container mx-auto py-12 px-4">
         <h1 className="text-3xl font-bold mb-6">Testimonials Admin</h1>
@@ -52,10 +31,10 @@ export default function TestimonialsAdminPage() {
     <div className="container mx-auto py-12 px-4">
       <h1 className="text-3xl font-bold mb-6">Testimonials Admin</h1>
 
-      {error && (
+      {errorMessage && (
         <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
           <strong className="font-bold">Error:</strong>
-          <span className="block sm:inline"> {error}</span>
+          <span className="block sm:inline"> {errorMessage}</span>
         </div>
       )}
 

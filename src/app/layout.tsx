@@ -5,6 +5,7 @@ import Navbar from "./(components)/Navbar";
 import Head from "next/head";
 import Docker from "./(components)/Docker";
 import { ThemeProvider } from "@/components/theme-provider";
+import QueryProvider from "@/providers/QueryProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -39,7 +40,9 @@ export default function RootLayout({
           {/* <div className="bg"></div> */}
           <div className="h-screen overflow-auto scroll-smooth">
             <Navbar />
-            {children}
+            <QueryProvider>
+              {children}
+            </QueryProvider>
           </div>
           <Docker />
         </ThemeProvider>

@@ -3,46 +3,26 @@
 import Link from "next/link";
 import TestimonialList from "@/components/TestimonialList";
 import { FaArrowRight } from "react-icons/fa6";
-import { useEffect, useState } from "react";
+import { useTopTestimonials } from "@/hooks/useTestimonials";
 
 // Ensure this component is dynamically rendered
 export const dynamic = "force-dynamic";
 
-interface ITestimonial {
-  _id: string;
-  name: string;
-  message: string;
-  rating: number;
-  approved: boolean;
-  createdAt: string;
-  updatedAt: string;
-}
-
 export default function Testimonials() {
-  const [testimonials, setTestimonials] = useState<ITestimonial[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
+  const { data: testimonials, isLoading, error } = useTopTestimonials(4);
 
-  useEffect(() => {
-    const fetchTestimonials = async () => {
-      setLoading(true);
-      try {
-        const res = await fetch("/api/testimonials?lim=4&approved=true");
-        const data = await res.json();
-        setTestimonials(data.data);
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchTestimonials();
-  }, []);
-
-  if (loading) {
+  if (isLoading) {
     return (
       <p className="text-gray-500 dark:text-gray-400 text-sm italic">
         Loading...
+      </p>
+    );
+  }
+
+  if (error) {
+    return (
+      <p className="text-red-500 dark:text-red-400 text-sm italic">
+        Error loading testimonials
       </p>
     );
   }
@@ -61,7 +41,7 @@ export default function Testimonials() {
         </Link>
       </div>
 
-      {testimonials.length > 0 ? (
+      {testimonials && testimonials.length > 0 ? (
         <TestimonialList testimonials={testimonials} gridLayout={true} />
       ) : (
         <p className="text-gray-500 dark:text-gray-400 text-sm italic mb-4">

@@ -2,55 +2,46 @@
 
 import { useState } from "react";
 import { StarRating } from "@/components/ui/star-rating";
+import { useCreateTestimonial } from "@/hooks/useTestimonials";
 
 export default function GuestbookForm() {
   const [rating, setRating] = useState(5);
-  const [submitting, setSubmitting] = useState(false);
   const [feedback, setFeedback] = useState<{
     type: "success" | "error";
     message: string;
   } | null>(null);
+  
+  const createMutation = useCreateTestimonial();
 
   async function handleSubmit(formData: FormData) {
-    setSubmitting(true);
     setFeedback(null);
 
     try {
-      formData.set("rating", rating.toString());
-      const res = await fetch("/api/testimonials", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: formData.get("name"),
-          message: formData.get("message"),
-          rating: formData.get("rating"),
-        }),
+      const name = formData.get("name") as string;
+      const message = formData.get("message") as string;
+      
+      const result = await createMutation.mutateAsync({
+        name,
+        message,
+        rating,
+        approved: false
       });
-      const data = await res.json();
-      if (res.ok) {
-        setFeedback({
-          type: "success",
-          message: data.message,
-        });
-        (document.getElementById("guestbook-form") as HTMLFormElement).reset();
-        setRating(5);
-      } else {
-        setFeedback({
-          type: "error",
-          message:
-            data.error || "Something went wrong. Please try again later.",
-        });
-      }
+      
+      setFeedback({
+        type: "success",
+        message: result.message || "Thank you for your feedback!",
+      });
+      
+      (document.getElementById("guestbook-form") as HTMLFormElement).reset();
+      setRating(5);
     } catch (error) {
       console.error("Error submitting form:", error);
       setFeedback({
         type: "error",
-        message: "Something went wrong. Please try again later.",
+        message: error instanceof Error 
+          ? error.message 
+          : "Something went wrong. Please try again later.",
       });
-    } finally {
-      setSubmitting(false);
     }
   }
 
@@ -127,10 +118,10 @@ export default function GuestbookForm() {
       <div>
         <button
           type="submit"
-          disabled={submitting}
+          disabled={createMutation.isPending}
           className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-black dark:bg-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          {submitting ? "Submitting..." : "Submit Feedback"}
+          {createMutation.isPending ? "Submitting..." : "Submit Feedback"}
         </button>
       </div>
     </form>

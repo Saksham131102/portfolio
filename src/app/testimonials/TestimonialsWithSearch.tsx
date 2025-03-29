@@ -2,16 +2,7 @@
 
 import { useState, useMemo } from "react";
 import TestimonialList from "@/components/TestimonialList";
-
-interface ITestimonial {
-  _id: string;
-  name: string;
-  message: string;
-  rating: number;
-  approved: boolean;
-  createdAt: string;
-  updatedAt: string;
-}
+import { ITestimonial } from "@/types/testimonial";
 
 interface TestimonialsWithSearchProps {
   testimonials: ITestimonial[];

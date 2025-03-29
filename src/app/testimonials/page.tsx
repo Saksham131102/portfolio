@@ -3,48 +3,27 @@
 import Link from "next/link";
 import TestimonialsWithSearch from "./TestimonialsWithSearch";
 import { FaArrowRight } from "react-icons/fa6";
-import { useEffect, useState } from "react";
-
-interface ITestimonial {
-  _id: string;
-  name: string;
-  message: string;
-  rating: number;
-  approved: boolean;
-  createdAt: string;
-  updatedAt: string;
-}
+import { useApprovedTestimonials } from "@/hooks/useTestimonials";
 
 export default function TestimonialsPage() {
-  const [approvedTestimonials, setApprovedTestimonials] = useState<
-    ITestimonial[]
-  >([]);
-  const [loading, setLoading] = useState<boolean>(false);
+  const { 
+    data: approvedTestimonials, 
+    isLoading, 
+    error 
+  } = useApprovedTestimonials();
 
-  console.log("Testimonials page: Fetching all approved testimonials");
-
-  // Fetch all approved testimonials
-  useEffect(() => {
-    const fetchApprovedTestimonials = async () => {
-      setLoading(true);
-      try {
-        const res = await fetch("/api/testimonials?approved=true");
-        const data = await res.json();
-        setApprovedTestimonials(data.data);
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchApprovedTestimonials();
-  }, []);
-
-  if (loading) {
+  if (isLoading) {
     return (
       <p className="text-gray-500 dark:text-gray-400 text-sm italic">
         Loading...
+      </p>
+    );
+  }
+
+  if (error) {
+    return (
+      <p className="text-red-500 dark:text-red-400 text-sm italic">
+        Error loading testimonials
       </p>
     );
   }

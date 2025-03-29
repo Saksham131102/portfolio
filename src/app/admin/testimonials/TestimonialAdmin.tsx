@@ -2,16 +2,8 @@
 
 import { useState } from "react";
 import { DisplayRating } from "@/components/ui/star-rating";
-
-interface ITestimonial {
-  _id: string;
-  name: string;
-  message: string;
-  rating: number;
-  approved: boolean;
-  createdAt: string;
-  updatedAt: string;
-}
+import { ITestimonial } from "@/types/testimonial";
+import { useUpdateTestimonial } from "@/hooks/useTestimonials";
 
 interface TestimonialAdminProps {
   testimonials: ITestimonial[];
@@ -30,11 +22,8 @@ function formatDate(dateString: string) {
 }
 
 export default function TestimonialAdmin({
-  testimonials: initialTestimonials,
+  testimonials,
 }: TestimonialAdminProps) {
-  const [testimonials, setTestimonials] =
-    useState<ITestimonial[]>(initialTestimonials);
-  const [isUpdating, setIsUpdating] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
   const [lastAction, setLastAction] = useState<{
@@ -42,45 +31,18 @@ export default function TestimonialAdmin({
     approved: boolean;
   } | null>(null);
 
+  const updateMutation = useUpdateTestimonial();
+  
   const handleApprove = async (id: string, approved: boolean) => {
-    setIsUpdating(id);
     setError(null);
     setSuccess(null);
     setLastAction({ id, approved });
 
     try {
-      // Add a timestamp to avoid caching issues
-      // const timestamp = new Date().getTime();
-      const response = await fetch(`/api/testimonials?id=${id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ approved }),
+      await updateMutation.mutateAsync({ 
+        id, 
+        testimonialData: { approved } 
       });
-
-      const result = await response.json();
-
-      if (!response.ok) {
-        console.error("Error response:", result);
-        throw new Error(result.error || "Failed to update testimonial");
-      }
-
-      if (!result.success) {
-        throw new Error("Update was not successful");
-      }
-
-      // Update local state with the returned data if available
-      if (result.data && result.data.id) {
-        setTestimonials(
-          testimonials.map((t) => (t._id === id ? { ...t, ...result.data } : t))
-        );
-      } else {
-        // Fallback to local update if no data returned
-        setTestimonials(
-          testimonials.map((t) => (t._id === id ? { ...t, approved } : t))
-        );
-      }
 
       setSuccess(
         `Testimonial ${approved ? "approved" : "unapproved"} successfully!`
@@ -95,8 +57,6 @@ export default function TestimonialAdmin({
       setError(
         err instanceof Error ? err.message : "Failed to update testimonial"
       );
-    } finally {
-      setIsUpdating(null);
     }
   };
 
@@ -178,7 +138,6 @@ export default function TestimonialAdmin({
                 <td className="py-2 px-4">
                   {testimonial.name}
                   <br />
-                  {/* <span className="text-xs text-gray-500">{testimonial.email}</span> */}
                 </td>
                 <td className="py-2 px-4">
                   <DisplayRating rating={testimonial.rating} />
@@ -202,14 +161,14 @@ export default function TestimonialAdmin({
                     onClick={() =>
                       handleApprove(testimonial._id, !testimonial.approved)
                     }
-                    disabled={isUpdating === testimonial._id}
+                    disabled={updateMutation.isPending}
                     className={`px-3 py-1 text-sm rounded ${
                       testimonial.approved
                         ? "bg-yellow-500 hover:bg-yellow-600 text-white"
                         : "bg-green-500 hover:bg-green-600 text-white"
                     } disabled:opacity-50 disabled:cursor-not-allowed`}
                   >
-                    {isUpdating === testimonial._id
+                    {updateMutation.isPending && updateMutation.variables?.id === testimonial._id
                       ? "Updating..."
                       : testimonial.approved
                       ? "Unapprove"
