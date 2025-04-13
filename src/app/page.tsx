@@ -21,7 +21,7 @@ export default function Home() {
           <SocialMedia />
           <Skills />
           <Projects />
-          <Education />
+          {/* <Education /> */}
           <CarouselImage />
           <Testimonials />
           <FavouriteJems />
