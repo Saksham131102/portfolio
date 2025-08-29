@@ -19,7 +19,7 @@ const Skills = () => {
           </div>
         </div>
       </div>
-      <div id="project" className="pb-16" />
+      {/* <div id="project" className="pb-16" /> */}
     </>
   );
 };

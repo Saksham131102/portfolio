@@ -15,13 +15,13 @@ const NameAndImage = () => {
         <div className="flex flex-col justify-center">
           <p className="font-medium dark:text-[#ededed]">Saksham</p>
           <p className="text-[#8e8e92] dark:text-[#b3b3b3] text-sm">
-            Full-Stack Developer Enthusiast
+            IC1 @Oracle
           </p>
         </div>
       </div>
       <a
         className="flex items-center my-auto text-sm text-[#8e8e92] dark:text-[#b3b3b3] hover:text-black dark:hover:text-white transition-colors duration-500"
-        href="https://drive.google.com/file/d/1kENOqZjiecxx57NHDK7HdeDE5-c1wJsO/view?usp=sharing"
+        href="https://drive.google.com/file/d/16zRF0pF5mPmTr7qvIEuC6VB52FSQqoKf/view?usp=sharing"
         target="_blank"
         rel="noopener noreferrer"
       >

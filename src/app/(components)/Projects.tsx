@@ -5,7 +5,7 @@ import { FiGithub } from "react-icons/fi";
 import { IoLogoGithub } from "react-icons/io5";
 const Projects = () => {
   return (
-    <div className="text-sm">
+    <div className="text-sm pt-8">
       <div className="text-[#B3B3B3] dark:text-[#ededed] font-ibm-plex-mono">
         projects
       </div>

@@ -28,7 +28,7 @@ export default function Testimonials() {
   }
 
   return (
-    <div className="text-sm pb-16">
+    <div className="text-sm pt-8">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-[#B3B3B3] dark:text-[#ededed] font-ibm-plex-mono mb-0">
           what others are saying

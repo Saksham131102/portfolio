@@ -36,7 +36,7 @@ const FavouriteJems = () => {
     setPlaying(newPlayingState);
   };
   return (
-    <div className="text-[#B3B3B3] dark:text-[#ededed] text-sm">
+    <div className="text-[#B3B3B3] dark:text-[#ededed] text-sm pt-8">
       <div className="font-ibm-plex-mono">favourite jems</div>
       {tracks.map((track, index) => (
         <div

@@ -9,6 +9,7 @@ import Projects from "./(components)/Projects";
 import Skills from "./(components)/Skills";
 import SocialMedia from "./(components)/SocialMedia";
 import Testimonials from "./(components)/Testimonials";
+import CertificationsSection from "./(components)/(certifications)/CertificationsSection";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
         <div className="lg:w-[860px] md:w-[780px] w-full md:px-[60px] h-screen">
           <NameAndImage />
           <Introduction />
+          {/* <CertificationsSection /> */}
           <Divider />
           <SocialMedia />
           <Skills />

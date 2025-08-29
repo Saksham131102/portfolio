@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -38,7 +38,7 @@ const CarouselImage: React.FC = () => {
           background-color: white;
         }`}
       </style>
-      <div className="pb-16">
+      <div className="pt-8">
         <div className="mb-4 text-[#B3B3B3] dark:text-[#ededed] text-sm font-ibm-plex-mono">
           my best pics
         </div>
