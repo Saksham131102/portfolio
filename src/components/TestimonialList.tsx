@@ -55,9 +55,9 @@ export default function TestimonialList({
               <h3 className="font-medium">{testimonial.name}</h3>
               <DisplayRating rating={testimonial.rating} className="mt-1" />
             </div>
-            <div className="text-xs text-gray-500 dark:text-gray-400">
+            {/* <div className="text-xs text-gray-500 dark:text-gray-400">
               {formatDate(testimonial.createdAt)}
-            </div>
+            </div> */}
           </div>
 
           <p className="dark:text-[#b3b3b3] text-black">
