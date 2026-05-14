@@ -10,12 +10,14 @@ const skills = [
   "Expressjs",
   "MongoDB",
   "Mongoose",
+  "PostgreSQL",
+  "Redis",
   "WebSocket",
+  "Socket.io",
   "Reactjs",
   "Nextjs",
   "Git",
   "Postman",
-  "Shell Scripting",
 ];
 
 export default skills;
