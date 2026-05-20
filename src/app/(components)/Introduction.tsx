@@ -5,9 +5,8 @@ const Introduction = () => {
         introduction
       </div>
       <p className="mt-4 dark:text-[#b3b3b3] text-black">
-        I expertise in full-stack development with more than a year of
-        experience in developing the applications that focus on solving
-        real-world problems.
+        Software Engineer building full-stack & AI powered products at Oracle.
+        Skilled in React.js, Node.js, MongoDB, FastAPI and RAG systems.
       </p>
     </div>
   );
