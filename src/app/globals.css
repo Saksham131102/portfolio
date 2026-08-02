@@ -90,6 +90,19 @@ html {
   transition: color 0.3s;
 }
 
-/* .navbar-text.white {
-  color: white;
-} */
+/* Equalizer bar animation for currently-playing track indicator */
+@keyframes equalize {
+  0%,
+  100% {
+    height: 4px;
+  }
+  50% {
+    height: 14px;
+  }
+}
+
+.animate-equalizer {
+  height: 4px;
+  animation: equalize infinite ease-in-out;
+}
+
