@@ -6,6 +6,7 @@ import {
   TbBinaryTree,
   TbTopologyStar3,
   TbSitemap,
+  TbGitFork,
 } from "react-icons/tb";
 import {
   SiCplusplus,
@@ -116,6 +117,11 @@ const skills: SkillCategory[] = [
         name: "RAG",
         icon: TbDatabaseSearch,
         description: "Retrieval-Augmented Generation",
+      },
+      {
+        name: "LangGraph",
+        icon: TbGitFork,
+        description: "Stateful multi-agent AI workflows",
       },
       {
         name: "Vector Embeddings",
