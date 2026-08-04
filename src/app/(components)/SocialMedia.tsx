@@ -40,7 +40,7 @@ const SocialMedia = () => {
         </a> */}
       </div>
       <a
-        href="mailto:saksham00013@gmail.com?body=Thank You for reaching out to me. Drop your message below."
+        href="mailto:saksham.tech13@gmail.com?body=Thank You for reaching out to me. Drop your message below."
         className="flex items-center gap-1 hover:text-black dark:hover:text-[#ededed] transition-colors duration-500"
       >
         Mail me <IoMailOutline className="text-lg" />

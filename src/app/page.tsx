@@ -7,6 +7,7 @@ import Introduction from "./(components)/Introduction";
 import NameAndImage from "./(components)/NameAndImage";
 import Projects from "./(components)/Projects";
 import Skills from "./(components)/Skills";
+import Experience from "./(components)/Experience";
 import SocialMedia from "./(components)/SocialMedia";
 import Testimonials from "./(components)/Testimonials";
 import CertificationsSection from "./(components)/(certifications)/CertificationsSection";
@@ -21,6 +22,7 @@ export default function Home() {
           {/* <CertificationsSection /> */}
           <Divider />
           <SocialMedia />
+          {/* <Experience /> */}
           <Skills />
           <Projects />
           {/* <Education /> */}

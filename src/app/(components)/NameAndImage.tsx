@@ -21,7 +21,7 @@ const NameAndImage = () => {
       </div>
       <a
         className="flex items-center my-auto text-sm text-[#8e8e92] dark:text-[#b3b3b3] hover:text-black dark:hover:text-white transition-colors duration-500"
-        href="https://drive.google.com/file/d/1x4rNrQFCX2vCgYNDgacuE-8LR5XknANU/view?usp=sharing"
+        href="https://drive.google.com/file/d/1oeohukPvyKCQAoXxlQUj_SGt8JA9ALCU/view?usp=sharing"
         target="_blank"
         rel="noopener noreferrer"
       >
